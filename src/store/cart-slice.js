@@ -14,6 +14,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addCartItem(state, action) {
+        state.initialNotification = true;
       const existingItem = state.items.find((i) => i.id == action.payload.id);
       if (!existingItem) {
         state.items.push({
@@ -27,6 +28,7 @@ const cartSlice = createSlice({
       }
     },
     toggleQuantity(state, action) {
+        state.initialNotification = true;
       const eleId = action.payload.id;
       const item = state.items.find((i) => i.id === eleId);
       if (action.payload.quantity === "inc") {
@@ -44,7 +46,7 @@ const cartSlice = createSlice({
     },
     onRefresh(state, action) {
       state.items = action.payload;
-      state.initialNotification = true;
+      
     },
   },
 });

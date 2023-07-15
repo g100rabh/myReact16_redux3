@@ -38,12 +38,16 @@ function App() {
         return;
       }
 
-    dispatch(addCartToDb(cart));
+      if(initialNotification == true){
+        dispatch(addCartToDb(cart));
+      }
+
+    
   }, [cart, dispatch]);
 
   return (
     <Fragment>
-      {initialNotification && notification && (
+      {notification && (
         <Notification
           status={notification.status}
           title={notification.title}
