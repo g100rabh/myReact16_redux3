@@ -19,7 +19,7 @@ const CartItem = (props) => {
   return (
     <ul>
       {cartItems.map((i) => (
-        <li className={classes.item}>
+        <li className={classes.item} key={i.id}>
         <header>
           <h3>{i.title}</h3>
           <div className={classes.price}>
